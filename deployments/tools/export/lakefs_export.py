@@ -85,7 +85,9 @@ def main():
     else:
         cmd = ["rclone", "copy", source, args.Dest, "--config=rclone.conf", "--create-empty-src-dirs"]
 
+    print("command ", cmd)
     process = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    print("process ", process.stdout, process.stderr)
 
     # check export and create status file
     if export_diff:
